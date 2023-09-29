@@ -40,7 +40,6 @@ public class GraphKosaRajusAlgo {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphKosaRajusAlgo graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
         boolean[] visited = new boolean[V];
         //Writing loop for disconnected components
 
@@ -48,13 +47,13 @@ public class GraphKosaRajusAlgo {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < V; i++) {
             if(!visited[i])
-                printGraphDFS(graph1,i,visited,stack);
+                findStronglyConnectedComponents(graph1,i,visited,stack);
         }
 
         // create a new copy graph
         for (int i = 0; i < V; i++) {
             if(!visited[i])
-                printGraphDFS(graph1,i,visited,stack);
+                findStronglyConnectedComponents(graph1,i,visited,stack);
         }
 
         GraphKosaRajusAlgo cpTranspose = new GraphKosaRajusAlgo(V);
@@ -89,13 +88,13 @@ public class GraphKosaRajusAlgo {
         }
     }
 
-    public static void printGraphDFS(GraphKosaRajusAlgo graph, int current, boolean[] visited, Stack<Integer> stack){
+    public static void findStronglyConnectedComponents(GraphKosaRajusAlgo graph, int current, boolean[] visited, Stack<Integer> stack){
         System.out.println(current);
         visited[current] = true;
         for (int i = 0; i < graph.graph[current].size(); i++) {
             Edge e = graph.graph[current].get(i);
             if(!visited[e.dest])
-                printGraphDFS(graph,e.dest,visited, stack);
+                findStronglyConnectedComponents(graph,e.dest,visited, stack);
         }
         stack.add(current);
     }

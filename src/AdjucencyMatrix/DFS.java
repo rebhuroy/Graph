@@ -1,4 +1,4 @@
-package AdjucencyList;
+package AdjucencyMatrix;
 
 import java.util.Scanner;
 

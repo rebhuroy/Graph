@@ -44,13 +44,13 @@ public class GraphWeightedGraph {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphWeightedGraph graph1 = createGraph(V, scanner);
-        System.out.println("Please enter which one vertex's neighoubur you want");
+        System.out.println("Please enter which one vertex's neighbour you want");
         int vertex = scanner.nextInt();
         printGraph(graph1,vertex);
     }
 
     public static void printGraph(GraphWeightedGraph graph, int src){
-        System.out.print("Neigoburs of "+src+" are [");
+        System.out.print("Neighbour of "+src+" are [");
         for (int i = 0; i < graph.graph[src].size(); i++) {
             Edge e = graph.graph[src].get(i);
             System.out.println(e.src +"->"+e.dest+" :"+e.weight);

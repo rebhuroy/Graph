@@ -2,7 +2,6 @@ package AdjucencyList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class TarjansAlgorithmBridgeInaGraph {
@@ -48,11 +47,11 @@ public class TarjansAlgorithmBridgeInaGraph {
         int time = 0;
         for (int i = 0; i < V; i++) {
             if(!visited[i])
-                printGraphDFS(graph1,i,visited,dt,low,parent,time);
+                bridgeInAGraph(graph1,i,visited,dt,low,parent,time);
         }
     }
 
-    private static void printGraphDFS(TarjansAlgorithmBridgeInaGraph graph1, int curr, boolean[] visited, int[] dt, int[] low, int parent,int time) {
+    private static void bridgeInAGraph(TarjansAlgorithmBridgeInaGraph graph1, int curr, boolean[] visited, int[] dt, int[] low, int parent, int time) {
 
         visited[curr] = true;
         low[curr] = dt[curr] = ++time;
@@ -63,7 +62,7 @@ public class TarjansAlgorithmBridgeInaGraph {
                 continue;
             }
             else if(!visited[edge.dest]){
-                printGraphDFS(graph1,edge.dest,visited,dt,low,curr,time);
+                bridgeInAGraph(graph1,edge.dest,visited,dt,low,curr,time);
                 low[curr]= Math.min(low[curr],low[edge.dest]);
                 if (dt[curr] < low[edge.dest]){
                     System.out.println("Bride is ::"+curr+"--"+edge.dest);

@@ -39,14 +39,13 @@ public class GraphDFSCycleDetectionInUNDirectedGraph {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphDFSCycleDetectionInUNDirectedGraph graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
         boolean[] visited = new boolean[V];
         boolean[] recursionStack = new boolean[V];
         //Writing loop for disconnected components
         boolean ans=false;
         for ( int i = 0; i < V; i++) {
             if(!visited[i])
-                if(printGraphDFSDetectCycle(graph1,0,-1,visited)){
+                if(detectCycleInUnDirectedGraph(graph1,0,-1,visited)){
                     ans = true;
                     break;
                 }
@@ -56,7 +55,7 @@ public class GraphDFSCycleDetectionInUNDirectedGraph {
 
     }
 
-    private static boolean printGraphDFSDetectCycle(GraphDFSCycleDetectionInUNDirectedGraph graph1, int current,int parent ,boolean[] visited) {
+    private static boolean detectCycleInUnDirectedGraph(GraphDFSCycleDetectionInUNDirectedGraph graph1, int current, int parent , boolean[] visited) {
 
         visited[current] = true;
         boolean ans = false;
@@ -68,7 +67,7 @@ public class GraphDFSCycleDetectionInUNDirectedGraph {
                 return true;
             }
               if (!visited[edge.dest]) {
-                 ans = printGraphDFSDetectCycle(graph1,edge.dest,current,visited);
+                 ans = detectCycleInUnDirectedGraph(graph1,edge.dest,current,visited);
             }
         }
 

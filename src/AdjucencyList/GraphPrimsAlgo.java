@@ -45,7 +45,7 @@ public class GraphPrimsAlgo {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphPrimsAlgo graph1 = createGraph(V, scanner);
-        System.out.println("Please enter which one vertex's neighoubur you want");
+        System.out.println("Please enter which one vertex's neighbour you want");
         int srcVertex = scanner.nextInt();
         boolean[] visited =new boolean[V];
         System.out.println("Mst Cost is::"+prims(graph1,srcVertex,visited));

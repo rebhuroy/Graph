@@ -39,14 +39,13 @@ public class GraphDFSCycleDetectionInDirectedGraph {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphDFSCycleDetectionInDirectedGraph graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
         boolean[] visited = new boolean[V];
         boolean[] recursionStack = new boolean[V];
         //Writing loop for disconnected components
         boolean ans=false;
         for ( int i = 0; i < V; i++) {
             if(!visited[i])
-                if(printGraphDFSDetectCycle(graph1,0,visited,recursionStack)){
+                if(detectCycleInDirectedGraph(graph1,0,visited,recursionStack)){
                     ans = true;
                     break;
                 }
@@ -56,7 +55,7 @@ public class GraphDFSCycleDetectionInDirectedGraph {
 
     }
 
-    private static boolean printGraphDFSDetectCycle(GraphDFSCycleDetectionInDirectedGraph graph1, int current, boolean[] visited, boolean[] recursionStack) {
+    private static boolean detectCycleInDirectedGraph(GraphDFSCycleDetectionInDirectedGraph graph1, int current, boolean[] visited, boolean[] recursionStack) {
 
         visited[current] = true;
         recursionStack[current] = true;
@@ -68,7 +67,7 @@ public class GraphDFSCycleDetectionInDirectedGraph {
             if(recursionStack[edge.dest]){
                 return true;
             } else if (!visited[edge.dest]) {
-                 ans = printGraphDFSDetectCycle(graph1,edge.dest,visited,recursionStack);
+                 ans = detectCycleInDirectedGraph(graph1,edge.dest,visited,recursionStack);
             }
         }
 

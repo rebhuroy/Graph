@@ -48,7 +48,7 @@ public class TarjansAlgorithmArticulationPointGraph {
         int time = 0;
         for (int i = 0; i < V; i++) {
             if(!visited[i])
-                printGraphDFS(graph1,i,visited,dt,low,parent,time,ap);
+                findArticulationPointsInAGraph(graph1,i,visited,dt,low,parent,time,ap);
         }
         System.out.println("Articulation points are below");
         for (int i = 0; i < ap.length; i++) {
@@ -58,9 +58,9 @@ public class TarjansAlgorithmArticulationPointGraph {
         }
     }
 
-    private static void printGraphDFS(TarjansAlgorithmArticulationPointGraph graph1,
-                                      int curr, boolean[] visited,
-                                      int[] dt, int[] low, int parent, int time, boolean[] ap) {
+    private static void findArticulationPointsInAGraph(TarjansAlgorithmArticulationPointGraph graph1,
+                                                       int curr, boolean[] visited,
+                                                       int[] dt, int[] low, int parent, int time, boolean[] ap) {
 
         visited[curr] = true;
         low[curr] = dt[curr] = ++time;
@@ -77,7 +77,7 @@ public class TarjansAlgorithmArticulationPointGraph {
                 low[curr] = Math.min(low[curr],dt[neighbour]);
             }
             else {
-                printGraphDFS(graph1,neighbour,visited,dt,low,curr,time,ap);
+                findArticulationPointsInAGraph(graph1,neighbour,visited,dt,low,curr,time,ap);
                 low[curr] = Math.min(low[curr],low[neighbour]);
                 if( dt[curr] <= low[neighbour] && parent != -1){
                     ap[curr] = true;

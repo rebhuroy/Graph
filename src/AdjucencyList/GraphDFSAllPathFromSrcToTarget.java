@@ -39,7 +39,6 @@ public class GraphDFSAllPathFromSrcToTarget {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphDFSAllPathFromSrcToTarget graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
         boolean[] visited = new boolean[V];
         //Writing loop for disconnected components
         System.out.println("Please enter src and target");

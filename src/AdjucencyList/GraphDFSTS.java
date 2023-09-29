@@ -40,13 +40,13 @@ public class GraphDFSTS {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphDFSTS graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
+        System.out.println("AdjucencyMatrix.DFS Traversal is");
         boolean[] visited = new boolean[V];
         Stack<Integer> topologicalData = new Stack<>();
         //Writing loop for disconnected components
         for (int i = 0; i < V; i++) {
             if(!visited[i]){
-                printGraphDFS(graph1,i,visited,topologicalData);
+                topologicalSort(graph1,i,visited,topologicalData);
             }
         }
         while (!topologicalData.isEmpty()){
@@ -54,13 +54,13 @@ public class GraphDFSTS {
         }
     }
 
-    public static void printGraphDFS(GraphDFSTS graph, int current, boolean[] visited,Stack<Integer> topologicalData){
+    public static void topologicalSort(GraphDFSTS graph, int current, boolean[] visited, Stack<Integer> topologicalData){
         visited[current] = true;
         for (int i = 0; i < graph.graph[current].size(); i++) {
             Edge edge = graph.graph[current].get(i);
 
             if(!visited[edge.dest]){
-                printGraphDFS(graph,edge.dest,visited,topologicalData);
+                topologicalSort(graph,edge.dest,visited,topologicalData);
             }
         }
         topologicalData.push(current);

@@ -2,7 +2,6 @@ package AdjucencyList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class BellmanFordAlgorithm { public List<Edge>[] graph ;
@@ -37,15 +36,15 @@ public class BellmanFordAlgorithm { public List<Edge>[] graph ;
         System.out.println("Please enter Source vertex");
         int src = scanner.nextInt();
         int[] distance = new int[V];
-        printGraph(graph1,src,distance,V);
+        bellmanFord(graph1,src,distance,V);
 
         System.out.println("The distance matrix is:");
-        StringBuilder distnacMatrix = new StringBuilder("{");
+        StringBuilder distanceMatrix = new StringBuilder("{");
         for (int j : distance) {
-            distnacMatrix.append(j).append(",");
+            distanceMatrix.append(j).append(",");
         }
-        distnacMatrix = new StringBuilder(distnacMatrix.substring(0, distnacMatrix.length() - 1) + "}");
-        System.out.print(distnacMatrix);
+        distanceMatrix = new StringBuilder(distanceMatrix.substring(0, distanceMatrix.length() - 1) + "}");
+        System.out.print(distanceMatrix);
     }
 
     public static class Pair implements Comparable<Pair>{
@@ -63,7 +62,7 @@ public class BellmanFordAlgorithm { public List<Edge>[] graph ;
         }
     }
 
-    private static void printGraph(BellmanFordAlgorithm graph1, int source, int[] distance,int V) {
+    private static void bellmanFord(BellmanFordAlgorithm graph1, int source, int[] distance, int V) {
         ///Initialize with infinity
         for (int i = 0; i < distance.length; i++) {
             if(i != source){

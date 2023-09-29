@@ -45,7 +45,7 @@ public class Graph {
     }
 
     public static void printGraph(Graph graph,int src){
-        System.out.print("Neigoburs of "+src+" are [");
+        System.out.print("Neighbour of "+src+" are [");
         for (int i = 0; i < graph.graph[src].size(); i++) {
             Edge e = graph.graph[src].get(i);
             //System.out.println(e);

@@ -37,7 +37,6 @@ public class GraphDFS {
         Scanner scanner  = new Scanner(System.in);
         int V = scanner.nextInt();
         GraphDFS graph1 = createGraph(V, scanner);
-        System.out.println("AdjucencyList.DFS Traversal is");
         boolean[] visited = new boolean[V];
         //Writing loop for disconnected components
         for (int i = 0; i < V; i++) {

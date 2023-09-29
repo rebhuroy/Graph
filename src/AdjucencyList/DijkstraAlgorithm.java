@@ -38,15 +38,15 @@ public class DijkstraAlgorithm { public List<Edge>[] graph ;
         int src = scanner.nextInt();
         int[] distance = new int[V];
         boolean[] visited = new boolean[V];
-        printGraph(graph1,src,visited,distance);
+        djkstra(graph1,src,visited,distance);
 
         System.out.println("The distance matrix is:");
-        String distnacMatrix = "{";
-        for (int i = 0; i < distance.length; i++) {
-            distnacMatrix += distance[i]+",";
+        StringBuilder distanceMat = new StringBuilder("{");
+        for (int j : distance) {
+            distanceMat.append(j).append(",");
         }
-        distnacMatrix = distnacMatrix.substring(0,distnacMatrix.length()-1) + "}";
-        System.out.print(distnacMatrix);
+        distanceMat = new StringBuilder(distanceMat.substring(0, distanceMat.length() - 1) + "}");
+        System.out.print(distanceMat);
     }
 
     public static class Pair implements Comparable<Pair>{
@@ -64,7 +64,7 @@ public class DijkstraAlgorithm { public List<Edge>[] graph ;
         }
     }
 
-    private static void printGraph(DijkstraAlgorithm graph1, int source, boolean[] visited, int[] distance) {
+    private static void djkstra(DijkstraAlgorithm graph1, int source, boolean[] visited, int[] distance) {
         ///Initialize with infinity
         for (int i = 0; i < distance.length; i++) {
             if(i != source){
@@ -72,7 +72,7 @@ public class DijkstraAlgorithm { public List<Edge>[] graph ;
             }
         }
         PriorityQueue<Pair> priorityQueue = new PriorityQueue<>();
-        priorityQueue.add(new Pair(0,0));
+        priorityQueue.add(new Pair(source,0));
         while (!priorityQueue.isEmpty()){
             Pair current = priorityQueue.remove(); //sortest distance
             if(!visited[current.node]){
