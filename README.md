@@ -1,4 +1,13 @@
 # Graph
+To run the repo int local 
+step 1:
+`git@github.com:rebhuroy/Graph.git`
+step 2:
+import to specific ide or run the specific class
+This repo having separate class for each algorithm
+
+
+
 This repo consist of complete graph related prolems
 
 
