@@ -18,3 +18,5 @@ This repo consist of complete graph related prolems
 14. Graph Weighted Graph Basic
 15. Tarjans Algorithm Bridge In a Graph
 16. Tarjans Algorithm Articulation Point in a Graph `TarjansAlgorithmArticulationPointGraph`
+17. Kruskal Algorithm (Adjucency Matrix)
+18. Djkstra Adjucency Matrix
